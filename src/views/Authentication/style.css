@@ -1,0 +1,237 @@
+@font-face {
+  font-family: "GimhaeGayaR";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimhaeGayaR.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes backgroundChange {
+  0% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background1.png");
+  }
+  16.67% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background2.png");
+  }
+  33.33% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background3.png");
+  }
+  50% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background4.png");
+  }
+  66.67% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background5.png");
+  }
+  83.33% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background6.png");
+  }
+  100% {
+    opacity: 1;
+    background-image: url("/src/assets/image/auth-bg/auth-background1.png");
+  }
+}
+
+#auth-wrapper {
+  padding: 100px 0px 150px;
+  min-width: 1440px;
+  height: calc(100vh - 68px - 100px - 150px);
+  min-height: 860px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  animation: backgroundChange 45s infinite;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.auth-container {
+  width: 1200px;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  column-gap: 78px;
+}
+
+.auth-jumbotron-box {
+  grid-column: 1 / 2;
+  height: 100%;
+
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+.auth-jumbotron-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.auth-logo-icon {
+  width: 150px;
+  height: 150px;
+  background-image: url("/src/assets/image/logo-light.png");
+  background-position: center;
+  background-size: contain;
+  filter: brightness(0) invert(1);
+  margin-bottom: -20px;
+}
+
+.auth-jumbotron-text {
+  font-family: "GimhaeGayaR", sans-serif;
+  color: rgba(255, 255, 255, 1);
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 140%;
+  letter-spacing: -0.8px;
+  text-align: center;
+}
+
+.auth-jumbotron-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-jumbotron-text-box .auth-jumbotron-text:last-child {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  color: #ffcc00;
+  text-align: center;
+}
+
+.auth-card {
+  grid-column: 2 / 3;
+
+  border-radius: 10px;
+  padding: 50px 50px 30px;
+
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 47px 0px rgba(0, 0, 0, 0.25);
+}
+
+.auth-card-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.auth-card-title-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-card-title {
+  color: rgba(0, 0, 0, 1);
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.auth-card-page {
+  color: rgba(0, 0, 0, 0.7);
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.auth-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-sign-in-error-box {
+  margin-bottom: -4px;
+}
+
+.auth-sign-in-error-message {
+  color: rgba(255, 0, 0, 0.7);
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  white-space: pre-wrap;
+}
+
+.auth-description-box {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-description {
+  color: rgba(0, 0, 0, 0.7);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.auth-description-link {
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-consent-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auth-check-box {
+  cursor: pointer;
+
+  width: 24px;
+  height: 24px;
+}
+
+.auth-content-title {
+  color: rgba(0, 0, 0, 0.7);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.auth-content-title-error {
+  color: rgba(255, 0, 0, 0.7);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.auth-content-link {
+  color: rgba(0, 0, 0, 1);
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+}
