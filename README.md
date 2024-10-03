@@ -15,7 +15,7 @@ App.tsx에서 return안에 있는거 싹다 지우시고 아래 컴포넌트 주
     //     {top3BoardListMock.map((top3ListItem) => (
     //       <Top3Item top3ListItem={top3ListItem} />
     //     ))}
-    //   </div>
+    //   </div>12345
     // </>
 
     // 댓글 리스트
@@ -72,4 +72,5 @@ App.tsx에서 return안에 있는거 싹다 지우시고 아래 컴포넌트 주
     // <>
     //   <Footer />
     // </>
-  );
+
+);
