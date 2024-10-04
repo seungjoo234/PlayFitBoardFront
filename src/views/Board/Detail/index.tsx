@@ -133,7 +133,12 @@ export default function BoardDetail() {
     const onUpdateButtonClickHandler = () => {
       if (!board || !loginUser) return;
       if (loginUser.email !== board.writerEmail) return;
-      navigator(BOARD_PATH() + "/" + BOARD_UPDATE_PATH(board.boardNumber));
+      const boardNumber = board.boardNumber; // 올바른 boardNumber 가져오기
+      if (boardNumber) {
+        navigator(`/board/update/${boardNumber}`);
+      } else {
+        console.error("Invalid board number:", boardNumber);
+      }
     };
 
     // event handler: 삭제 버튼 클릭 이벤트 처리 //
