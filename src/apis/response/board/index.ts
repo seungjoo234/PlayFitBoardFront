@@ -7,6 +7,7 @@ import GetCommentListResponseDto from "./get-comment-list.response.dto";
 import PutFavoriteResponseDto from "./put-favorite.response.dto";
 import PostCommentResponseDto from "./post-comment.response.dto";
 import DeleteBoardResponseDto from "./delete-board.response.dto";
+import GetSearchBoardListResponseDto from "./get-search-board-list.response.dto";
 export type {
   GetBoardResponseDto,
   PostBoardResponseDto,
@@ -17,4 +18,5 @@ export type {
   PostCommentResponseDto,
   DeleteBoardResponseDto,
   PatchBoardResponseDto,
+  GetSearchBoardListResponseDto,
 };

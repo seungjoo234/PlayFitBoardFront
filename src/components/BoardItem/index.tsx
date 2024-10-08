@@ -54,7 +54,7 @@ export default function BoardItem({ boardListItem }: Props) {
         </div>
       </div>
       {boardTitleImage !== null && (
-        <div className="board-list-itme-image-box">
+        <div className="board-list-item-image-box">
           <div
             className="board-list-item-image"
             style={{
