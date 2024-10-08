@@ -2,6 +2,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Main from "views/Main";
 import Authentication from "views/Authentication";
+import Community_life from "views/Board/Community/community-life";
+import Community_health from "views/Board/Community/community-health";
+import Community_fila from "views/Board/Community/community-fila";
+import Community_sports from "views/Board/Community/community-sports";
 import Search from "views/Search";
 import UserP from "views/User";
 import BoardWrite from "views/Board/Write";
@@ -17,6 +21,10 @@ import {
   MAIN_PATH,
   SEARCH_PATH,
   USER_PATH,
+  LIFE_PATH,
+  HEALTH_PATH,
+  FILA_PATH,
+  SPORTS_PATH,
 } from "constant";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
@@ -69,6 +77,10 @@ function App() {
       <Route element={<Container />}>
         <Route path={MAIN_PATH()} element={<Main />} />
         <Route path={AUTH_PATH()} element={<Authentication />} />
+        <Route path={LIFE_PATH()} element={<Community_life />} />
+        <Route path={HEALTH_PATH()} element={<Community_health />} />
+        <Route path={FILA_PATH()} element={<Community_fila />} />
+        <Route path={SPORTS_PATH()} element={<Community_sports />} />
         <Route path={SEARCH_PATH(":searchWord")} element={<Search />} />
         <Route path={USER_PATH(":userEmail")} element={<UserP />} />
         <Route path="/board">

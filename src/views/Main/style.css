@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "MaplestoryOTFBold";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "MaplestoryOTFBold", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    /* 페이지의 전체 높이를 100%로 설정 */
+    margin: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    position: relative;
+    background: url(../../assets/image/bg.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: black;
+    font-family: "MaplestoryOTFBold", sans-serif;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 검정색 오버레이, 투명도 조절 */
+    z-index: 1;
+    /* 오버레이가 배경보다 위에 위치 */
+}
+
+.main img {
+    width: 100px;
+    z-index: 2;
+    position: relative;
+    filter: invert(1);
+}
+
+.main h1 {
+    font-size: 40px;
+    color: white;
+    letter-spacing: 0.2em;
+    margin-bottom: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.main button {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 14px;
+    transition: 0.5s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.main button:hover {
+    cursor: pointer;
+    transition: 0.5s ease;
+    border: 2px solid white;
+    background: black;
+    color: white;
+}

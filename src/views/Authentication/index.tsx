@@ -20,7 +20,9 @@ import { SignUpResponseDto } from "apis/response/auth";
 // component : 인증 화면 컴포넌트 //
 export default function Authentication() {
   // state: 화면 상태 //
-  const [view, setView] = useState<"sign-in" | "sign-up">("sign-in");
+  const [view, setView] = useState<"sign-in" | "sign-up" | "find-id-pw">(
+    "sign-in"
+  );
   // state: 쿠키 상태 //
   const [cookies, setCookie] = useCookies();
 
@@ -125,6 +127,11 @@ export default function Authentication() {
       if (event.key !== "Enter") return;
       onSignInButtonClickHandler();
     };
+
+    const onFindIdPwLinkClickHandler = () => {
+      setView("find-id-pw");
+    };
+
     // render : sign in card 컴포넌트 렌더링 //
     return (
       <div className="auth-card">
@@ -181,6 +188,15 @@ export default function Authentication() {
                 >
                   {"회원가입"}
                 </span>
+                <div className="auth-description">
+                  {"아이디나 비밀번호를 잊으셨나요? "}
+                  <span
+                    className="auth-description-link"
+                    onClick={onFindIdPwLinkClickHandler}
+                  >
+                    {"아이디/비밀번호 찾기"}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -653,11 +669,10 @@ export default function Authentication() {
                     onClick={onAgreedPersonalClickHandler}
                   >
                     <div
-                      className={`icon ${
-                        agreedPersonal
+                      className={`icon ${agreedPersonal
                           ? "check-round-fill-icon"
                           : "check-ring-light-icon"
-                      }`}
+                        }`}
                     ></div>
                   </div>
                   <div
@@ -696,6 +711,156 @@ export default function Authentication() {
     );
   };
 
+  const FindIdPwCard = () => {
+    const [activeTab, setActiveTab] = useState<"find-id" | "find-pw">(
+      "find-id"
+    );
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [verificationCodeId, setVerificationCodeId] = useState("");
+    const [verificationCodePw, setVerificationCodePw] = useState("");
+    const [showVerificationInputId, setShowVerificationInputId] =
+      useState(false);
+    const [showVerificationInputPw, setShowVerificationInputPw] =
+      useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
+
+    const onSignInLinkClickHandler = () => {
+      setView("sign-in");
+    };
+
+    const onSignLinkClickHandler = () => {
+      setView("sign-up");
+    };
+
+    const handleFindIdSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setShowVerificationInputId(true);
+    };
+
+    const handleFindPwSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setShowVerificationInputPw(true);
+    };
+
+    return (
+      <div className="find-id-pw-card">
+        <div className="tab-buttons">
+          <button
+            className={`tab-button ${activeTab === "find-id" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("find-id");
+              setShowVerificationInputId(false);
+              setEmail("");
+            }}
+          >
+            아이디 찾기
+          </button>
+          <button
+            className={`tab-button ${activeTab === "find-pw" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("find-pw");
+              setShowVerificationInputPw(false);
+              setUsername("");
+              setEmail("");
+            }}
+          >
+            비밀번호 찾기
+          </button>
+        </div>
+        {activeTab === "find-id" && (
+          <form className="find-id-form" onSubmit={handleFindIdSubmit}>
+            <InputBox
+              label="이메일 주소"
+              type="email"
+              placeholder="이메일 주소를 입력하세요"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError}
+              message={emailError ? "이메일 주소를 입력하세요." : ""}
+              id="email"
+            />
+            {showVerificationInputId && (
+              <div>
+                <InputBox
+                  label="인증번호"
+                  type="text"
+                  placeholder="인증번호를 입력하세요"
+                  value={verificationCodeId}
+                  onChange={(e) => setVerificationCodeId(e.target.value)}
+                  error={false}
+                  message=""
+                  id="verification-code-id"
+                />
+              </div>
+            )}
+            <button type="submit">아이디 찾기</button>
+          </form>
+        )}
+        {activeTab === "find-pw" && (
+          <form className="find-pw-form" onSubmit={handleFindPwSubmit}>
+            <InputBox
+              label="아이디"
+              type="text"
+              placeholder="아이디를 입력하세요"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              error={usernameError}
+              message={usernameError ? "아이디를 입력하세요." : ""}
+              id="username"
+            />
+            <InputBox
+              label="이메일 주소"
+              type="email"
+              placeholder="이메일 주소를 입력하세요"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError}
+              message={emailError ? "이메일 주소를 입력하세요." : ""}
+              id="email"
+            />
+            {showVerificationInputPw && (
+              <div>
+                <InputBox
+                  label="인증번호"
+                  type="text"
+                  placeholder="인증번호를 입력하세요"
+                  value={verificationCodePw}
+                  onChange={(e) => setVerificationCodePw(e.target.value)}
+                  error={false}
+                  message=""
+                  id="verification-code-pw"
+                />
+              </div>
+            )}
+            <button type="submit">비밀번호 찾기</button>
+          </form>
+        )}
+        <div className="auth-description-box">
+          <div className="auth-description">
+            {"이미 계정이 있으신가요? "}
+            <span
+              className="auth-description-link"
+              onClick={onSignInLinkClickHandler}
+            >
+              {"로그인"}
+            </span>
+            <div className="auth-description">
+              {"계정이 존재하지 않으신가요? "}
+              <span
+                className="auth-description-link"
+                onClick={onSignLinkClickHandler}
+              >
+                {"회원가입"}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // render : 인증화면 컴포넌트 렌더링 //
   return (
     <div id="auth-wrapper">
@@ -711,6 +876,7 @@ export default function Authentication() {
         </div>
         {view === "sign-in" && <SignInCard />}
         {view === "sign-up" && <SignUpCard />}
+        {view === "find-id-pw" && <FindIdPwCard />}
       </div>
     </div>
   );
