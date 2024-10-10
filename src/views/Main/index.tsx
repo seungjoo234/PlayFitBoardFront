@@ -16,7 +16,6 @@ import {
   USER_PATH,
 } from "constant";
 import Commu from "./commu";
-import Commu_nav from "./commu-nav";
 import "./style.css";
 
 const logo = require("../../assets/image/logo.png");
@@ -34,10 +33,11 @@ export default function Main() {
       <div className="main">
         <img src={logo} alt="로고" />
         <h1>PlayFit</h1>
-        <button onClick={handleButtonClick}>오늘 운동을 공유해보세요!</button>
+        <button onClick={handleButtonClick}>
+          나의 이야기를 공유하러 가기 &gt;&gt;
+        </button>
       </div>
       <div className="commu-container">
-        <Commu_nav />
         <Commu />
       </div>
     </>

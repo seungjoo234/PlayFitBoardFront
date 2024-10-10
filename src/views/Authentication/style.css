@@ -1,6 +1,7 @@
 @font-face {
   font-family: "GimhaeGayaR";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimhaeGayaR.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimhaeGayaR.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -60,7 +61,7 @@
   padding: 100px 0px 150px;
   min-width: 1440px;
   height: calc(100vh - 68px - 100px - 150px);
-  min-height: 860px;
+  min-height: 868px;
 
   display: flex;
   justify-content: center;
